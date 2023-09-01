@@ -85,9 +85,9 @@ const showCards = (data) => {
 
             cards.innerHTML = `
             
-            <figure class = "h-40">
-            <img src=${element.thumbnail} alt="CardImage" class="rounded-lg" />
-           </figure>
+          
+            <img src=${element.thumbnail} alt="CardImage" class="h-44 rounded-lg" />
+         
           <div class="mt-10 flex gap-5 text-lg">
             <img src=${element.authors[0].profile_picture} alt="" class="w-10 h-10 rounded-full">
             <div class="flex flex-col">
