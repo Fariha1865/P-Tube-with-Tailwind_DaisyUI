@@ -1,17 +1,22 @@
-let id = 1000;
+let id;
+let cardsArray = [];
+let isSorted = false;
 // ...........Fetch Catagories............activeButton.apply.apply.
 const getCardsCatagories = async() =>{
 
       try{
         const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
         const data = await response.json();
+        ToggleSpinner(true);
         showTabsNavigationButtons(data.data);
+        //to show All catagories cards by default
+        getCardInformationsById(data.data[0].category_id);
+        
       }catch(error){
           console.log("Failed to fetch catagories data");
       }
 
 }
-
 
 //.................Show the tab navigation bar...................
 const showTabsNavigationButtons = (data) => {
@@ -31,7 +36,7 @@ const showTabsNavigationButtons = (data) => {
              
              catagoriesButton.id = element.category_id;
              id = element.category_id;
-             getCardInformationsById();
+             getCardInformationsById(id);
              activeButton(element.category_id);
               
         })
@@ -42,8 +47,10 @@ const showTabsNavigationButtons = (data) => {
 
 }
 //..................Get category id from tab button click............
-const getCardInformationsById = async() => {
-
+const getCardInformationsById = async(id) => {
+   
+    ToggleSpinner(true);
+    console.log(id)
     try{
         const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
         const data = await response.json();
@@ -55,15 +62,18 @@ const getCardInformationsById = async() => {
 }
 
 //..........function to show cards (when no cards available to show, no data available message is shown).........
-const showCards = (data) => {
+const showCards = async(data) => {
+
     const cardHolder = document.getElementById('cards_holder');
     const emptyTab = document.getElementById('noItems');
     cardHolder.innerHTML = '';
     emptyTab.innerHTML='';
     //.....when data is empty....
-    if(data.length ===0)
+    if(data.length === 0 && id!=undefined)
     {
+ 
         cardHolder.classList.add('hidden');
+       
         
         const empty = document.createElement('div');
         empty.classList = "flex flex-col items-center"
@@ -73,6 +83,9 @@ const showCards = (data) => {
         
         `
         emptyTab.appendChild(empty);
+        ToggleSpinner(false);
+      
+  
     }
     //.......when data is not empty............
     else{
@@ -105,6 +118,7 @@ const showCards = (data) => {
             
             `
         cardHolder.appendChild(cards);
+        ToggleSpinner(false);
        })
 
     }
@@ -138,6 +152,18 @@ function activeButton(category_id){
     activeButton.style.backgroundColor = '#FF1F3D'
     activeButton.style.color = 'white'
 }
+
+function ToggleSpinner(isLoading){
+
+    if(isLoading)
+    {
+        document.getElementById('spinner').classList.remove('hidden');
+    }else{
+        document.getElementById('spinner').classList.add('hidden');
+    }
+}
+
+
 
 getCardsCatagories()
 getCardInformationsById ()
