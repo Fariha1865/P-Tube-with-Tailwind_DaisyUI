@@ -31,7 +31,7 @@ const showTabsNavigationButtons = (data) => {
              
              catagoriesButton.id = element.category_id;
              id = element.category_id;
-     
+             getCardInformationsById();
              activeButton(element.category_id);
               
         })
@@ -41,6 +41,84 @@ const showTabsNavigationButtons = (data) => {
 
 
 }
+
+const getCardInformationsById = async() => {
+
+    console.log(id)
+    try{
+        const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
+        const data = await response.json();
+        showCards(data.data);
+      }catch(error){
+          console.log("Failed to fetch catagories data by Id");
+      }
+
+}
+const showCards = (data) => {
+    const cardHolder = document.getElementById('cards_holder');
+
+    cardHolder.innerHTML = '';
+       data.forEach(element => {
+
+     
+            const cards = document.createElement('div')
+            cards.classList = "p-5 card bg-base-100 shadow-xl shadow-gray-500 transform hover:scale-105 transition duration-300 ease-in-out";
+
+            cards.innerHTML = `
+            
+            <figure class = "h-40">
+            <img src=${element.thumbnail} alt="CardImage" class="rounded-lg" />
+           </figure>
+          <div class="mt-10 flex gap-5 text-lg">
+            <img src=${element.authors[0].profile_picture} alt="" class="w-10 h-10 rounded-full">
+            <div class="flex flex-col">
+                <h1 class="font-bold">${element.title}</h1>
+                <div class="flex gap-2 items-center mt-3">
+                    <p class="text-gray-600">${element.authors[0].profile_name}</p>
+
+                    ${element.authors[0].verified ? '<img src="./images/verified.png" alt="" />' : ''}
+                     
+                </div>
+                <p class="text-gray-600 mt-2">${element.others.views}</p>
+            </div>
+        </div>
+            
+            
+            `
+        cardHolder.appendChild(cards);
+       })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,3 +143,4 @@ function activeButton(category_id){
 }
 
 getCardsCatagories()
+getCardInformationsById ()
