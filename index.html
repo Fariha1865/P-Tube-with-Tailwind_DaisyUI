@@ -37,7 +37,7 @@
                 <a onclick="sortCards()" class="btn bg-[#25252533] hover:bg-[#FF1F3D] hover:text-white">Sort By View</a>
             </div>
             <div>
-                <a class="btn px-7 bg-[#FF1F3D] hover:bg-red-600 text-white font-medium">Blog</a>
+                <a href="blog.html" class="btn px-7 bg-[#FF1F3D] hover:bg-red-600 text-white font-medium">Blog</a>
             </div>
         </div>
 
@@ -58,11 +58,14 @@
             <span class="loading loading-spinner loading-lg"></span>
         </div>
 
+        <!-- Parent Cards Holder div where the cards will be generated catagoryWise -->
         <div id="cards_holder" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-5 p-20">
 
 
 
         </div>
+
+        <!-- Div to hold the no content available text for catagories that don't have any data -->
         <div id="noItems" class="max-w-5xl mx-auto flex justify-center mt-20 mb-10">
 
         </div>

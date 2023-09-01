@@ -111,7 +111,7 @@ const showCards = async (data) => {
                     ${element.authors[0].verified ? '<img src="./images/verified.png" alt="" />' : ''}
                      
                 </div>
-                <p class="views text-gray-600 mt-2">${element.others.views}</p>
+                <p class="views text-gray-600 mt-2">${element.others.views+" views"}</p>
             </div>
 
         </div>
