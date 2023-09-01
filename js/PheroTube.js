@@ -117,8 +117,9 @@ const showCards = async (data) => {
         </div>
 
         ${convertedTime !== 'noTime' ? `
-        <div id="time" class="absolute mt-36 ml-16 md:ml-24 lg:ml-32">
+        <div id="time" class="absolute mt-36 ml-16 md:ml-24 lg:ml-24">
           <h1 class="bg-black rounded-md text-white text-xs w-36 py-1 text-center font-bold">${convertedTime}</h1>
+        
         </div>` : ''}
             
             `
