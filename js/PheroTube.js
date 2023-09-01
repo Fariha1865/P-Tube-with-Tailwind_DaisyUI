@@ -41,7 +41,7 @@ const showTabsNavigationButtons = (data) => {
 
 
 }
-
+//..................Get category id from tab button click............
 const getCardInformationsById = async() => {
 
     try{
@@ -53,11 +53,14 @@ const getCardInformationsById = async() => {
       }
 
 }
+
+//..........function to show cards (when no cards available to show, no data available message is shown).........
 const showCards = (data) => {
     const cardHolder = document.getElementById('cards_holder');
     const emptyTab = document.getElementById('noItems');
     cardHolder.innerHTML = '';
     emptyTab.innerHTML='';
+    //.....when data is empty....
     if(data.length ===0)
     {
         cardHolder.classList.add('hidden');
@@ -70,7 +73,9 @@ const showCards = (data) => {
         
         `
         emptyTab.appendChild(empty);
-    }else{
+    }
+    //.......when data is not empty............
+    else{
        cardHolder.classList.remove('hidden');
        data.forEach(element => {
 
@@ -114,35 +119,7 @@ const showCards = (data) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//...............To change color when hovered......................
+//...............To change color when tab is changed......................
 function activeButton(category_id){
 
     const activeButton = document.getElementById(category_id);
