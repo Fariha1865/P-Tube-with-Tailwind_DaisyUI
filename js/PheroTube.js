@@ -44,7 +44,6 @@ const showTabsNavigationButtons = (data) => {
 
 const getCardInformationsById = async() => {
 
-    console.log(id)
     try{
         const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
         const data = await response.json();
@@ -56,8 +55,23 @@ const getCardInformationsById = async() => {
 }
 const showCards = (data) => {
     const cardHolder = document.getElementById('cards_holder');
-
+    const emptyTab = document.getElementById('noItems');
     cardHolder.innerHTML = '';
+    emptyTab.innerHTML='';
+    if(data.length ===0)
+    {
+        cardHolder.classList.add('hidden');
+        
+        const empty = document.createElement('div');
+        empty.classList = "flex flex-col items-center"
+        empty.innerHTML=`
+        <img src="./images/Icon.png" alt="CardImage" class="w-32"/>
+        <h1 class="mt-5 text-xl font-bold text-center">Oops!! Sorry, There is no<br> content here<h1>
+        
+        `
+        emptyTab.appendChild(empty);
+    }else{
+       cardHolder.classList.remove('hidden');
        data.forEach(element => {
 
      
@@ -87,6 +101,12 @@ const showCards = (data) => {
             `
         cardHolder.appendChild(cards);
        })
+
+    }
+    
+
+
+       
 }
 
 
