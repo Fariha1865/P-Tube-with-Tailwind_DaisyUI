@@ -15,21 +15,51 @@
     
     <div class="max-w-4xl h-screen  mx-auto flex flex-col items-center gap-20 p-10 lg:p-0">
        
-        <h1 class="text-4xl font-bold text">Question Answer <span class="text-[#FF1F3D]">Blog</span></h1>
+        <h1 class="text-4xl font-bold text text-center">Question Answer <span class="text-[#FF1F3D]">Blog</span></h1>
         <div class="w-full">
             <div class="join join-vertical w-full">
                 <div class="collapse collapse-arrow join-item border border-base-300">
-                  <input type="radio" name="my-accordion-4" checked="checked" /> 
-                  <div class="collapse-title text-xl font-medium">
+                  <input type="radio" name="my-accordion-4" /> 
+                  <div class="collapse-title text-3xl font-semibold text-red-950">
                     Discuss the scope of var, let, and const
                   </div>
                   <div class="collapse-content"> 
-                    <p class="id"></p>
+                    <p class="text-lg font-semibold">
+                        <!-- Var -->
+                        <span class="font-bold underline text-xl">Var:</span>  Variables declared with var are <span class="font-bold">function scoped</span>. No matter in what block or position of the function it's declared,
+                        it's <span class="font-bold">hoisted</span> to the top of the function and can be accessed from anywhere of the function.
+                        
+                        So, variables declared with var can be used before they are actually declared in the code. In this case the value will be
+                        undefined which leads to unnecessary confusions in code. That's why let is used now instead of var to avoid code confusions and to give
+                        improved scope control<br><br>
+                         <!-- Let -->
+                        <span class="font-bold underline text-xl">Let:</span>  Variables declared with let are <span class="font-bold">block scoped</span>. They are only accessible within the block they are declared inside a function or code
+                        
+                        So, variables declared with let can be used only after they are actually declared in the code, and only from inside of the block it is declared.Outside the block the let variables are not accessible, as they are <span class="font-bold">not Hoisted</span> to top like variables declared with var.<br><br>
+                         <!-- Const -->
+                        <span class="font-bold underline text-xl">Const:</span>  Variables declared with Const are <span class="font-bold">block scoped</span> like let variables. They are also only accessible within the block they are declared inside a function or code
+                        
+                        The difference of const from let is that const variables <span class="font-bold">cannot be re-assigned</span> after value is assigned once. BuT let variables gives flexibility to re-assign values as many times as wanted.
+                       <br><br>
+                       <span class="font-bold text-red-950 text-lg underline">Example:</span><br>
+                       function scope() {<br>
+                        for (i = 3; i > 0; i--) {<br>
+                          let num1 = 3;<br>
+                          var num2 = 4;<br>
+                          const num3 = 5;<br>
+                        }<br>
+                        console.log(num1); <span class="font-bold">//num1 will not be accessible outside the for loop block</span><br>
+                        console.log(num2); <span class="font-bold">//num2 will be accessible outside the for loop block as it is hoisted on top of the function</span><br>
+                        console.log(num3); <span class="font-bold">//num3 will not be accessible outside the for loop block</span><br>
+                        
+                      }
+                          
+                    </p>
                   </div>
                 </div>
                 <div class="collapse collapse-arrow join-item border border-base-300">
                   <input type="radio" name="my-accordion-4" /> 
-                  <div class="collapse-title text-xl font-medium">
+                  <div class="collapse-title text-3xl font-semibold text-red-950">
                     use cases of null and undefined
                   </div>
                   <div class="collapse-content"> 
@@ -37,8 +67,8 @@
                   </div>
                 </div>
                 <div class="collapse collapse-arrow join-item border border-base-300">
-                  <input type="radio" name="my-accordion-4" /> 
-                  <div class="collapse-title text-xl font-medium">
+                  <input type="radio" name="my-accordion-4"/> 
+                  <div class="collapse-title text-3xl font-semibold text-red-950">
                     What do you mean by REST API?
                   </div>
                   <div class="collapse-content"> 
