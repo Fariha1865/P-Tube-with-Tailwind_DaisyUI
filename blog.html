@@ -18,6 +18,7 @@
         <h1 class="text-4xl font-bold text text-center">Question Answer <span class="text-[#FF1F3D]">Blog</span></h1>
         <div class="w-full">
             <div class="join join-vertical w-full">
+              <!-- Question-1 -->
                 <div class="collapse collapse-arrow join-item border border-base-300">
                   <input type="radio" name="my-accordion-4" /> 
                   <div class="collapse-title text-3xl font-semibold text-red-950">
@@ -57,13 +58,33 @@
                     </p>
                   </div>
                 </div>
+                <!-- Question-2 -->
                 <div class="collapse collapse-arrow join-item border border-base-300">
                   <input type="radio" name="my-accordion-4" /> 
                   <div class="collapse-title text-3xl font-semibold text-red-950">
                     use cases of null and undefined
                   </div>
                   <div class="collapse-content"> 
-                    <p></p>
+                    <p class="text-lg font-semibold">Runtime errors can be avoided by first determining whether a variable or property is null or undefined before using it. Few use cases of both kinds are:<br><br>
+
+                     <span class="font-bold underline text-xl"> Use Cases of Null: </span> <br> 
+                      
+                      1. To indicate that a variable or property has no meaningful value that we can use later in any conditional blocks, we can set its value to null.<br><br>
+                      
+                      2. Any value of a variable or property may be cleared using null.<br><br>
+                      
+                      3. We can initialise a variable to null, and update it with the actual data once it becomes available in cases, where data retrieval or initialization is asynchronous.
+                     <br><br>
+                      <span class="font-bold underline text-xl"> Use Cases of Undefined: </span> <br> 
+                      
+                      1. Variables that are not intialized are automatically set to undefined. We can use this in conditional blocks later to find which property or variables don't have values assigned and use them accordigly<br><br>
+                      
+                      2. Undefined is returned when we try to access a property of an object, that does not exist. This can be used in conditional blocks to determine if a property is present in an object or not and work accordingly<br><br>
+                      
+                      3. When calling a function with multiple parameters, if we only want to pass values for some of them, we can set the remaining arguments as undefined. <br><br>
+                      4. When trying to verify that an element exists inside an array or not, undefined will be useful here. When an element doesn't exist in an array, if we try to access it, it'll return undefined which we can use to verify that the element in not inside the array.
+                    
+                    </p>
                   </div>
                 </div>
                 <div class="collapse collapse-arrow join-item border border-base-300">
