@@ -50,7 +50,6 @@ const showTabsNavigationButtons = (data) => {
 const getCardInformationsById = async(id) => {
    
     ToggleSpinner(true);
-    console.log(id)
     try{
         const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
         const data = await response.json();
@@ -94,7 +93,7 @@ const showCards = async(data) => {
 
      
             const cards = document.createElement('div')
-            cards.classList = "p-5 card bg-base-100 shadow-xl shadow-gray-500 transform hover:scale-105 transition duration-300 ease-in-out";
+            cards.classList = "card p-5 card bg-base-100 shadow-xl shadow-gray-500 transform hover:scale-105 transition duration-300 ease-in-out";
 
             cards.innerHTML = `
             
@@ -111,13 +110,15 @@ const showCards = async(data) => {
                     ${element.authors[0].verified ? '<img src="./images/verified.png" alt="" />' : ''}
                      
                 </div>
-                <p class="text-gray-600 mt-2">${element.others.views}</p>
+                <p class="views text-gray-600 mt-2">${element.others.views}</p>
             </div>
         </div>
             
             
             `
         cardHolder.appendChild(cards);
+        isSorted=false;
+        cardsArray = Array.from(document.querySelectorAll('.card'));
         ToggleSpinner(false);
        })
 
@@ -164,6 +165,35 @@ function ToggleSpinner(isLoading){
 }
 
 
+function sortCards() {
+
+    const cardObjects = cardsArray.map(card => {
+      let views = card.querySelector('.views').textContent; 
+      views = parseFloat(views.replace('K',''))*1000;
+      console.log(views)
+      return { card, views };
+    });
+
+  
+    if (isSorted === false) {
+      cardObjects.sort((a, b) => b.views - a.views);
+      isSorted = true;
+    } else {
+      isSorted = false;
+      return;
+    }
+  
+     console.log(cardObjects)
+  
+    document.getElementById('cards_holder').innerHTML = '';
+  
+    for (let i = 0; i < cardObjects.length; i++) {
+      document.getElementById('cards_holder').appendChild(cardObjects[i].card)
+  
+    }
+  
+  
+  }
 
 getCardsCatagories()
 getCardInformationsById ()
