@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,96 +11,227 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
-    <a href="index.html"><button class="btn bg-[#FF1F3D] hover:bg-red-600 text-white ml-10 mt-10">Home</button></a>
+
+<body class="p-10">
+    <h1 class="text-4xl font-bold text text-center">JS Insights<span class="text-[#FF1F3D] pt-10"> Blog</span></h1>
+    <a href="index.html"><button class="btn bg-[#FF1F3D] hover:bg-red-600 text-white ml-32 mt-5 md:mt-0 md:ml-5">Home</button></a>
     
     <div class="max-w-4xl h-screen  mx-auto flex flex-col items-center gap-20 p-10 lg:p-0">
-       
-        <h1 class="text-4xl font-bold text text-center">Question Answer <span class="text-[#FF1F3D]">Blog</span></h1>
-        <div class="w-full">
-            <div class="join join-vertical w-full">
-              <!-- Question-1 -->
-                <div class="collapse collapse-arrow join-item border border-base-300">
-                  <input type="radio" name="my-accordion-4" /> 
-                  <div class="collapse-title text-3xl font-semibold text-red-950">
-                    Discuss the scope of var, let, and const
-                  </div>
-                  <div class="collapse-content"> 
-                    <p class="text-lg font-semibold">
-                        <!-- Var -->
-                        <span class="font-bold underline text-xl">Var:</span>  Variables declared with var are <span class="font-bold">function scoped</span>. No matter in what block or position of the function it's declared,
-                        it's <span class="font-bold">hoisted</span> to the top of the function and can be accessed from anywhere of the function.
-                        
-                        So, variables declared with var can be used before they are actually declared in the code. In this case the value will be
-                        undefined which leads to unnecessary confusions in code. That's why let is used now instead of var to avoid code confusions and to give
-                        improved scope control<br><br>
-                         <!-- Let -->
-                        <span class="font-bold underline text-xl">Let:</span>  Variables declared with let are <span class="font-bold">block scoped</span>. They are only accessible within the block they are declared inside a function or code
-                        
-                        So, variables declared with let can be used only after they are actually declared in the code, and only from inside of the block it is declared.Outside the block the let variables are not accessible, as they are <span class="font-bold">not Hoisted</span> to top like variables declared with var.<br><br>
-                         <!-- Const -->
-                        <span class="font-bold underline text-xl">Const:</span>  Variables declared with Const are <span class="font-bold">block scoped</span> like let variables. They are also only accessible within the block they are declared inside a function or code
-                        
-                        The difference of const from let is that const variables <span class="font-bold">cannot be re-assigned</span> after value is assigned once. BuT let variables gives flexibility to re-assign values as many times as wanted.
-                       <br><br>
-                       <span class="font-bold text-red-950 text-lg underline">Example:</span><br>
-                       function scope() {<br>
-                        for (i = 3; i > 0; i--) {<br>
-                          let num1 = 3;<br>
-                          var num2 = 4;<br>
-                          const num3 = 5;<br>
-                        }<br>
-                        console.log(num1); <span class="font-bold">//num1 will not be accessible outside the for loop block</span><br>
-                        console.log(num2); <span class="font-bold">//num2 will be accessible outside the for loop block as it is hoisted on top of the function</span><br>
-                        console.log(num3); <span class="font-bold">//num3 will not be accessible outside the for loop block</span><br>
-                        
-                      }
-                          
-                    </p>
-                  </div>
-                </div>
-                <!-- Question-2 -->
-                <div class="collapse collapse-arrow join-item border border-base-300">
-                  <input type="radio" name="my-accordion-4" /> 
-                  <div class="collapse-title text-3xl font-semibold text-red-950">
-                    use cases of null and undefined
-                  </div>
-                  <div class="collapse-content"> 
-                    <p class="text-lg font-semibold">Runtime errors can be avoided by first determining whether a variable or property is null or undefined before using it. Few use cases of both kinds are:<br><br>
 
-                     <span class="font-bold underline text-xl"> Use Cases of Null: </span> <br> 
-                      
-                      1. To indicate that a variable or property has no meaningful value that we can use later in any conditional blocks, we can set its value to null.<br><br>
-                      
-                      2. Any value of a variable or property may be cleared using null.<br><br>
-                      
-                      3. We can initialise a variable to null, and update it with the actual data once it becomes available in cases, where data retrieval or initialization is asynchronous.
-                     <br><br>
-                      <span class="font-bold underline text-xl"> Use Cases of Undefined: </span> <br> 
-                      
-                      1. Variables that are not intialized are automatically set to undefined. We can use this in conditional blocks later to find which property or variables don't have values assigned and use them accordigly<br><br>
-                      
-                      2. Undefined is returned when we try to access a property of an object, that does not exist. This can be used in conditional blocks to determine if a property is present in an object or not and work accordingly<br><br>
-                      
-                      3. When calling a function with multiple parameters, if we only want to pass values for some of them, we can set the remaining arguments as undefined. <br><br>
-                      4. When trying to verify that an element exists inside an array or not, undefined will be useful here. When an element doesn't exist in an array, if we try to access it, it'll return undefined which we can use to verify that the element in not inside the array.
-                    
+       
+
+        <!-- blog cards holder -->
+        <div class="flex flex-col lg:flex-row gap-10">
+            <!-- blog-1 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure><img src="./images/letVarConst.jpg" alt="letVarConst" class="w-full h-28" /></figure>
+                <div class="card-body"> 
+                    <p class="text-lg font-semibold ">
+                        <!-- Var -->
+                        <span class="font-bold text-lg underline text-red-800">Scope of var, let, and const</span><br><br>
+                        <span class="font-bold underline text-xl">Var:</span> Variables declared with var are <span
+                            class="font-bold">function scoped</span>. No matter in what block or position of the
+                        function it's declared,
+                       
+
                     </p>
-                  </div>
+                    <button id="btn1" class="btn px-5 bg-[#FF1F3D] hover:bg-red-600 text-white">Read Full Blog</button>
                 </div>
-                <!-- Question-3 -->
-                <div class="collapse collapse-arrow join-item border border-base-300">
-                  <input type="radio" name="my-accordion-4"/> 
-                  <div class="collapse-title text-3xl font-semibold text-red-950">
-                    What do you mean by REST API?
-                  </div>
-                  <div class="collapse-content"> 
-                    <p></p>
-                  </div>
+            </div>
+
+
+            <!-- blog-3 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure><img src="./images/nullUndefined.png" alt="letVarConst" class="w-full h-28" /></figure>
+                      
+                <div class="card-body">
+                  <span class="font-bold text-lg underline text-red-800">Scope of var, let, and const</span>
+                    <p class="text-lg font-semibold">Runtime errors can be avoided by first determining whether a
+                        variable or property is null or undefined before using it.
+                   
+                    </p>
+                    <button id="btn2" class="btn px-5 bg-[#FF1F3D] hover:bg-red-600 text-white">Read Full Blog</button>
                 </div>
-              </div>
+            </div>
+            <!-- blog-3 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure><img src="./images/rest.png" alt="letVarConst" class="w-full h-28" /></figure>
+                <div class="card-body">
+                  <span class="font-bold text-lg underline text-red-800">REST API</span>
+                    <p class="text-lg font-semibold">
+                      Representational State Transfer means when a
+                        user requests a resource from server, server
+                       
+                    </p>
+                    <button id="btn3" class="btn px-5 bg-[#FF1F3D] hover:bg-red-600 text-white">Read Full Blog</button>
+                </div>
+            </div>
         </div>
     </div>
 
+
+
+
+
+
+
+
+    <!-- var let const Blog -->
+    <dialog id="my_modal" class="modal modal-bottom sm:modal-middle p-10">
+        <form method="dialog" class="modal-box p-10">
+            <figure><img src="./images/letVarConst.jpg" alt="letVarConst" class="w-full h-28" /></figure>
+
+            <p class="text-lg font-semibold mt-4">
+                <!-- Var -->
+                <span class="font-bold underline text-xl">Var:</span> Variables declared with var are <span
+                    class="font-bold">function scoped</span>. No matter in what block or position of the function it's
+                declared,
+                it's <span class="font-bold">hoisted</span> to the top of the function and can be accessed from anywhere
+                of the function.
+
+                So, variables declared with var can be used before they are actually declared in the code. In this case
+                the value will be
+                undefined which leads to unnecessary confusions in code. That's why let is used now instead of var to
+                avoid code confusions and to give
+                improved scope control<br><br>
+                <!-- Let -->
+                <span class="font-bold underline text-xl">Let:</span> Variables declared with let are <span
+                    class="font-bold">block scoped</span>. They are only accessible within the block they are declared
+                inside a function or code
+
+                So, variables declared with let can be used only after they are actually declared in the code, and only
+                from inside of the block it is declared.Outside the block the let variables are not accessible, as they
+                are <span class="font-bold">not Hoisted</span> to top like variables declared with var.<br><br>
+                <!-- Const -->
+                <span class="font-bold underline text-xl">Const:</span> Variables declared with Const are <span
+                    class="font-bold">block scoped</span> like let variables. They are also only accessible within the
+                block they are declared inside a function or code
+
+                The difference of const from let is that const variables <span class="font-bold">cannot be
+                    re-assigned</span> after value is assigned once. BuT let variables gives flexibility to re-assign
+                values as many times as wanted.
+                <br><br>
+                <span class="font-bold text-red-950 text-lg underline">Example:</span><br>
+                function scope() {<br>
+                for (i = 3; i > 0; i--) {<br>
+                let num1 = 3;<br>
+                var num2 = 4;<br>
+                const num3 = 5;<br>
+                }<br>
+                console.log(num1); <span class="font-bold">//num1 will not be accessible outside the for loop
+                    block</span><br>
+                console.log(num2); <span class="font-bold">//num2 will be accessible outside the for loop block as it is
+                    hoisted on top of the function</span><br>
+                console.log(num3); <span class="font-bold">//num3 will not be accessible outside the for loop
+                    block</span><br>
+
+                }
+
+            </p>
+            <div class="modal-action flex justify-between items-center">
+
+                <p class="font-bold text-red-950">**Scroll to top**</p>
+                <button class="btn bg-[#FF1F3D] text-white hover:bg-red-600">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <!-- Null Undefined Blog -->
+    <dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle p-10">
+        <form method="dialog" class="modal-box p-10">
+            <figure><img src="./images/nullUndefined.png" alt="letVarConst" class="w-full h-28" /></figure>
+
+            <p class="text-lg font-semibold">Runtime errors can be avoided by first determining whether a variable or
+                property is null or undefined before using it. Few use cases of both kinds are:<br><br>
+
+                <span class="font-bold underline text-xl"> Use Cases of Null: </span> <br>
+
+                1. To indicate that a variable or property has no meaningful value that we can use later in any
+                conditional blocks, we can set its value to null.<br><br>
+
+                2. Any value of a variable or property may be cleared using null.<br><br>
+
+                3. When data of a variable is gained with asynchronous functions,
+                We can initialize a variable to null, and update it with the actual data once it becomes available.
+                <br><br>
+                <span class="font-bold underline text-xl"> Use Cases of Undefined: </span> <br>
+
+                1. Variables that are not initialized are automatically set to undefined. We can use this in conditional
+                blocks later to find which property or variables don't have values assigned and use them
+                accordingly<br><br>
+
+                2. Undefined is returned when we try to access a property of an object, that does not exist. This can be
+                used in conditional blocks to determine if a property is present in an object or not and work
+                accordingly<br><br>
+
+                3. When calling a function with multiple parameters, if we only want to pass values for some of them, we
+                can set the remaining arguments as undefined. <br><br>
+                4. When trying to verify that an element exists inside an array or not, undefined will be useful here.
+                When an element doesn't exist in an array, if we try to access it, it'll return undefined which we can
+                use to verify that the element in not inside the array.
+
+            </p>
+            <div class="modal-action flex justify-between items-center">
+
+                <p class="font-bold text-red-950">**Scroll to top**</p>
+                <button class="btn bg-[#FF1F3D] text-white hover:bg-red-600">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <!-- Null Undefined Blog -->
+    <dialog id="my_modal_3" class="modal modal-bottom sm:modal-middle p-10">
+        <form method="dialog" class="modal-box p-10">
+            <figure><img src="./images/rest.png" alt="letVarConst" class="w-full h-28" /></figure>
+
+            <p><span class="font-bold text-xl">REST-</span> Representational State Transfer means when a user requests a
+                resource from server, server
+                transfers back to user the current state of the resource in a a standard representation that is easily
+                understantable by the clients.<br><br>
+
+                - So, through REST API,<br><br>
+
+                - Clients send requests to server and retrievs relevant information (GET)<br><br>
+
+                - Client also can modify items (Put and Patch)<br><br>
+
+                - Clients can add new items to the server (Post)<br><br>
+
+                - Clients also can delete any eisting item on the server (Delete)<br><br>
+
+                <span class="font-bold text-xl">Example: </span><br><br>
+
+                <span class="font-bold text-xl">step-1:</span> Suppose client wants a specific music from spotify. The
+                client can send
+                request through browser specifiying song name and singers name etc<br><br>
+
+                <span class="font-bold text-xl">step-2:</span> Browser sends request to DNS server<br><br>
+
+                <span class="font-bold text-xl">step-3:</span> Server locatesb the music from database, processed it and
+                sends it back to the client<br><br>
+
+                <span class="font-bold text-xl">step-4:</span> Browser parse it after receiving and shows to
+                client<br><br>
+
+                Like this, through spotify REST api, client requested and spotify server responded<br><br>
+
+                <span class="font-bold text-xl">The request sent by client are HTTP requests that holds below
+                    sections:</span><br><br>
+
+                - HTTP methods (GET/POST/PUT/PATCH/DELETE)<br><br>
+                - URL (includes the address or enpoint of the server that client wants to interact with)<br><br>
+                - Headers provide additional information about the request client is sending like
+                authentication,credentials etc.<br><br>
+                - The body of data contains data in specified format like JSON or XML. Used when creating or updating
+                any item on server (For PUT, POST and PATCH) methods
+            </p>
+
+            <div class="modal-action flex justify-between items-center">
+
+                <p class="font-bold text-red-950">**Scroll to top**</p>
+                <button class="btn bg-[#FF1F3D] text-white hover:bg-red-600">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <script src="js/blog.js"></script>
 </body>
+
 </html>
